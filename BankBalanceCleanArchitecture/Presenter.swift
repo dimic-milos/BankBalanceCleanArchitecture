@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Interactor
 
 class Presenter: InteractorPresenter {
 

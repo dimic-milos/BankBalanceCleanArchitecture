@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Interactor
 
 protocol DisplayLogicProtocol: class {
     func display(viewModel: ShowBalance.ViewModel)

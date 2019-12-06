@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Interactor
 
 class Worker: InteractorWorker {
 
