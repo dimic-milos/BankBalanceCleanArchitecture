@@ -9,11 +9,15 @@
 import Foundation
 import Interactor
 
+protocol PresentLogic: class {
+    func display(viewModel: ShowBalance.ViewModel)
+}
+
 class Presenter: InteractorPresenter {
 
-    weak var viewController: DisplayLogicProtocol?
+    weak var viewController: PresentLogic?
     
-    init(viewController: DisplayLogicProtocol) {
+    init(viewController: PresentLogic) {
         self.viewController = viewController
     }
     

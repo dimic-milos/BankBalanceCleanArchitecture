@@ -9,11 +9,7 @@
 import UIKit
 import Interactor
 
-protocol DisplayLogicProtocol: class {
-    func display(viewModel: ShowBalance.ViewModel)
-}
-
-class EnterUserIDViewController: UIViewController, DisplayLogicProtocol {
+class EnterUserIDViewController: UIViewController, PresentLogic {
     
     @IBOutlet weak var textFieldID: UITextField!
     
