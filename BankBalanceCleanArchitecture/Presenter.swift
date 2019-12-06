@@ -8,15 +8,8 @@
 
 import Foundation
 
-protocol PresenterInputProtocol: class {
-    func presentBalance(response: ShowBalance.Response)
-}
 
-protocol PresenterOutputProtocol {
-    var  viewController: DisplayLogicProtocol? { get set }
-}
-
-class Presenter: PresenterInputProtocol, PresenterOutputProtocol {
+class Presenter: InteractorOutput {
 
     weak var viewController: DisplayLogicProtocol?
     

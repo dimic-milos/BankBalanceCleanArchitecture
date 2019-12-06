@@ -29,7 +29,7 @@ class ChooseAccountOperationViewController: UIViewController {
         presenter.viewController = viewController
         let worker = Worker(stores: [CoreDataStore(), MemoryStore()])
         interactor.delegate = worker
-        interactor.presenter =  presenter
+        interactor.output =  presenter
         router.viewController = viewController
         
         return viewController

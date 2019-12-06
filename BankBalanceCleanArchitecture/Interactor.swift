@@ -13,19 +13,19 @@ protocol InteractorInputProtocol {
     func showBalance(request: ShowBalance.Request)
 }
 
-protocol InteractorOutputProtocol {
-    var presenter: PresenterInputProtocol? { get set }
-}
-
 protocol InteractorOutputDelegate {
     func getBalance(completion: @escaping (Result<Double, Error>) -> ())
 }
 
-class Interactor: InteractorInputProtocol, InteractorOutputProtocol {
+protocol InteractorOutput {
+    func presentBalance(response: ShowBalance.Response)
+}
+
+class Interactor: InteractorInputProtocol {
 
     private let entity = Entity()
-            var presenter: PresenterInputProtocol?
             var delegate: InteractorOutputDelegate?
+            var output: InteractorOutput?
     
     func showBalance(request: ShowBalance.Request) {
         
@@ -37,7 +37,7 @@ class Interactor: InteractorInputProtocol, InteractorOutputProtocol {
             switch result {
                 
             case .success(let balance):
-                self.presenter?.presentBalance(response: ShowBalance.Response(amount: balance))
+                self.output?.presentBalance(response: ShowBalance.Response(amount: balance))
             case .failure(_):
                 break
             }
