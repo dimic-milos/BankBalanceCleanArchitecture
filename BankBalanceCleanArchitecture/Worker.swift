@@ -8,13 +8,7 @@
 
 import Foundation
 
-protocol WorkerInputProtocol {
-    func getBalance(completion: @escaping (Result<Double, Error>) -> ())
-}
-
-protocol WorkerOutputProtocol {}
-
-class Worker: WorkerInputProtocol, WorkerOutputProtocol {
+class Worker: InteractorOutputDelegate {
 
     let stores: [StoreProtocol]
 

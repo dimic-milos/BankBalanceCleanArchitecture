@@ -17,11 +17,15 @@ protocol InteractorOutputProtocol {
     var presenter: PresenterInputProtocol? { get set }
 }
 
+protocol InteractorOutputDelegate {
+    func getBalance(completion: @escaping (Result<Double, Error>) -> ())
+}
+
 class Interactor: InteractorInputProtocol, InteractorOutputProtocol {
 
     private let entity = Entity()
-    private let worker: WorkerInputProtocol = Worker(stores: [CoreDataStore(), MemoryStore()])
             var presenter: PresenterInputProtocol?
+            var delegate: InteractorOutputDelegate?
     
     func showBalance(request: ShowBalance.Request) {
         
@@ -29,7 +33,7 @@ class Interactor: InteractorInputProtocol, InteractorOutputProtocol {
             return
         }
         
-        worker.getBalance { (result) in
+        delegate?.getBalance { (result) in
             switch result {
                 
             case .success(let balance):
