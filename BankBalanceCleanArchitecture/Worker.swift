@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Worker: InteractorOutputDelegate {
+class Worker: InteractorWorker {
 
     let stores: [StoreProtocol]
 

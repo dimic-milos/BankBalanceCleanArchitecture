@@ -9,23 +9,23 @@
 import Foundation
 import Entity
 
-protocol InteractorInputProtocol {
+protocol InteractorRequest {
     func showBalance(request: ShowBalance.Request)
 }
 
-protocol InteractorOutputDelegate {
+protocol InteractorWorker {
     func getBalance(completion: @escaping (Result<Double, Error>) -> ())
 }
 
-protocol InteractorOutput {
+protocol InteractorPresenter {
     func presentBalance(response: ShowBalance.Response)
 }
 
-class Interactor: InteractorInputProtocol {
+class Interactor: InteractorRequest {
 
     private let entity = Entity()
-            var delegate: InteractorOutputDelegate?
-            var output: InteractorOutput?
+            var worker: InteractorWorker?
+            var presenter: InteractorPresenter?
     
     func showBalance(request: ShowBalance.Request) {
         
@@ -33,11 +33,11 @@ class Interactor: InteractorInputProtocol {
             return
         }
         
-        delegate?.getBalance { (result) in
+        worker?.getBalance { (result) in
             switch result {
                 
             case .success(let balance):
-                self.output?.presentBalance(response: ShowBalance.Response(amount: balance))
+                self.presenter?.presentBalance(response: ShowBalance.Response(amount: balance))
             case .failure(_):
                 break
             }

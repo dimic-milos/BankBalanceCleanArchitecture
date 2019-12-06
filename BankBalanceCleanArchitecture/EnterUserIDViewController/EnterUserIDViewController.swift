@@ -16,10 +16,10 @@ class EnterUserIDViewController: UIViewController, DisplayLogicProtocol {
     
     @IBOutlet weak var textFieldID: UITextField!
     
-    private var interactor: InteractorInputProtocol
+    private var interactor: InteractorRequest
     private var router: RouterProtocol
     
-    init(interactor: InteractorInputProtocol, router: RouterProtocol) {
+    init(interactor: InteractorRequest, router: RouterProtocol) {
         self.interactor = interactor
         self.router = router
         super.init(nibName: nil, bundle: nil)

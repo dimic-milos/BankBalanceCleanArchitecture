@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Presenter: InteractorOutput {
+class Presenter: InteractorPresenter {
 
     weak var viewController: DisplayLogicProtocol?
     
