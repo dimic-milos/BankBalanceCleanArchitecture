@@ -1,24 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8LG-Hc-KQj">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Choose Account Operation View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ChooseAccountOperationViewController" customModule="BankBalanceCleanArchitecture" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9z4-Oh-Kb7">
+                                <rect key="frame" x="107" y="348" width="200" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulh-sT-vn6">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="66.5"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Show Balance"/>
+                                        <connections>
+                                            <action selector="didTapButtonShowBalance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NOc-60-5Uj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpi-KM-gxG">
+                                        <rect key="frame" x="0.0" y="66.5" width="200" height="67"/>
+                                        <state key="normal" title="Show Bank Hours"/>
+                                        <connections>
+                                            <action selector="didTapButtonShowBankHours:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TgD-IQ-3fU"/>
+                                            <segue destination="vaF-Yi-tWa" kind="show" identifier="segueToBankHours" id="S7q-U7-1ll"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9A-9R-f1m">
+                                        <rect key="frame" x="0.0" y="133.5" width="200" height="66.5"/>
+                                        <state key="normal" title="Show Bank Locations"/>
+                                        <connections>
+                                            <segue destination="L3K-Yv-d0o" kind="show" destinationCreationSelector="didTapBurronShowBankLocationsWithCoder:" id="f4d-OI-9MZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="11o-37-CEj"/>
+                                    <constraint firstAttribute="width" constant="200" id="cGs-Tk-tvm"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9z4-Oh-Kb7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OAm-Bm-0YX"/>
+                            <constraint firstItem="9z4-Oh-Kb7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aMl-Pa-05y"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="By2-eD-ydE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="137.94642857142856"/>
+        </scene>
+        <!--Bank Locations View Controller-->
+        <scene sceneID="5ys-QE-i6S">
+            <objects>
+                <viewController storyboardIdentifier="BankLocationsViewController" id="L3K-Yv-d0o" customClass="BankLocationsViewController" customModule="BankBalanceCleanArchitecture" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RYY-BV-gYM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SA2-4R-qjq">
+                                <rect key="frame" x="57" y="431" width="300" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="dq7-fa-2eR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SA2-4R-qjq" firstAttribute="centerY" secondItem="RYY-BV-gYM" secondAttribute="centerY" id="ZQK-tg-VNS"/>
+                            <constraint firstItem="SA2-4R-qjq" firstAttribute="centerX" secondItem="RYY-BV-gYM" secondAttribute="centerX" id="mJ4-kS-wpT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CmD-Fg-kCt"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hDb-wO-MF1"/>
+                    <connections>
+                        <outlet property="textFieldLocation" destination="SA2-4R-qjq" id="GKu-TR-Wy4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WPr-Hm-SDP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2054" y="515"/>
+        </scene>
+        <!--Bank Hours View Controller-->
+        <scene sceneID="wMp-CN-PPl">
+            <objects>
+                <viewController id="vaF-Yi-tWa" customClass="BankHoursViewController" customModule="BankBalanceCleanArchitecture" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oLW-Vv-9B7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJW-4q-n3T">
+                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHF-8C-aE4">
+                                <rect key="frame" x="108" y="488" width="198" height="30"/>
+                                <state key="normal" title="Show Bank Locations Screen"/>
+                                <connections>
+                                    <action selector="buttonShowBankLocationsTapped:" destination="vaF-Yi-tWa" eventType="touchUpInside" id="nrX-o1-UNi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="oJW-4q-n3T" firstAttribute="centerY" secondItem="oLW-Vv-9B7" secondAttribute="centerY" id="Hcd-Ib-Mrw"/>
+                            <constraint firstItem="oJW-4q-n3T" firstAttribute="centerX" secondItem="oLW-Vv-9B7" secondAttribute="centerX" id="Sux-a7-K09"/>
+                            <constraint firstItem="fHF-8C-aE4" firstAttribute="centerX" secondItem="oJW-4q-n3T" secondAttribute="centerX" id="dMs-a6-WNy"/>
+                            <constraint firstItem="fHF-8C-aE4" firstAttribute="top" secondItem="oJW-4q-n3T" secondAttribute="bottom" constant="29.5" id="p0o-xa-zEH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nc7-rH-NnF"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hF3-XV-WcL"/>
+                    <connections>
+                        <outlet property="labelHours" destination="oJW-4q-n3T" id="0mr-Ty-yBV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VhH-Qw-GAt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2959" y="124"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Kbk-1B-PwW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8LG-Hc-KQj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jgt-m0-4je">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hrA-cv-sOD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VQL-33-Tod" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>

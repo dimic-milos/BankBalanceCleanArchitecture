@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnterUserIDViewController" customModule="BankBalanceCleanArchitecture" customModuleProvider="target">
+            <connections>
+                <outlet property="textFieldID" destination="JmT-xc-J7e" id="aOJ-14-U0Y"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JmT-xc-J7e">
+                    <rect key="frame" x="157" y="431" width="100" height="34"/>
+                    <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="dqp-JV-IUf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaQ-Qu-aNF">
+                    <rect key="frame" x="176.5" y="372" width="61" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anT-KC-HWD">
+                    <rect key="frame" x="192" y="502" width="30" height="30"/>
+                    <state key="normal" title="GO"/>
+                    <connections>
+                        <action selector="didTapButtonGo:" destination="-1" eventType="touchUpInside" id="qrp-4P-udL"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ZaQ-Qu-aNF" firstAttribute="centerX" secondItem="JmT-xc-J7e" secondAttribute="centerX" id="2Mq-ea-867"/>
+                <constraint firstItem="anT-KC-HWD" firstAttribute="centerX" secondItem="JmT-xc-J7e" secondAttribute="centerX" id="3Yb-4q-ypn"/>
+                <constraint firstItem="JmT-xc-J7e" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="B0g-Uf-pAQ"/>
+                <constraint firstItem="anT-KC-HWD" firstAttribute="top" secondItem="JmT-xc-J7e" secondAttribute="bottom" constant="37" id="Jjn-hj-YO4"/>
+                <constraint firstItem="JmT-xc-J7e" firstAttribute="top" secondItem="ZaQ-Qu-aNF" secondAttribute="bottom" constant="38" id="e7S-tX-tZW"/>
+                <constraint firstItem="JmT-xc-J7e" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="qHU-Yh-bMh"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="132" y="153"/>
+        </view>
+    </objects>
+</document>
