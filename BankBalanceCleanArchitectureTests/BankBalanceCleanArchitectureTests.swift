@@ -7,28 +7,33 @@
 //
 
 import XCTest
+import Interactor
 @testable import BankBalanceCleanArchitecture
 
 class BankBalanceCleanArchitectureTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func test_presentBalance() {
+        // Given
+        let viewController = PresentLogicSpy()
+        let presenter = Presenter(viewController: viewController)
+        presenter.viewController = viewController
+        
+        // When
+        presenter.presentBalance(response: ShowBalance.Response(amount: 1))
+        
+        // Then
+        XCTAssertTrue(viewController.isCalled)
+        
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    class PresentLogicSpy: PresentLogic {
+        var isCalled = false
+        func display(viewModel: ShowBalance.ViewModel) {
+            isCalled = true
         }
+        
+        
     }
 
 }
